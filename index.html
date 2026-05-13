@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>lulucat｜悦行一号 — 改善关节韧力疲劳的专业运动鞋</title>
+<meta name="description" content="lulucat 是美国新一代运动鞋品牌，专注缓解关节韧力疲劳。首发 Strider 1（悦行一号）搭载 CORE 韧力释放中底，早鸟预订开启。">
+<meta name="keywords" content="关节韧力疲劳, lulucat, 韧力释放, CORE 韧力释放中底, Strider 1, 运动鞋, 跑鞋">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  color: var(--text-primary); line-height: 1.6;
+  background: var(--bg); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+}
+
+/* Logo watermark — tighter, more visible tiling */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: url('brand/lulucat_logo.png');
+  background-repeat: repeat;
+  background-size: 120px 120px;
+  opacity: 0.07;
+  pointer-events: none;
+}
+
+:root {
+  --bg: #ffffff;
+  --bg-alt: #f5f5f7;
+  --bg-cool: #fbfbfd;
+  --text-primary: #1d1d1f;
+  --text-secondary: #86868b;
+  --text-tertiary: #aeaeb2;
+  --accent: #0066CC;
+  --accent-hover: #004499;
+  --border: #d2d2d7;
+  --border-light: #e8e8ed;
+  --card-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  --nav-blur: rgba(255,255,255,0.85);
+}
+
+/* ---- 语言切换 ---- */
+.lang-zh, .lang-en { transition: opacity 0.25s ease; }
+[data-lang="zh"] .lang-en { display: none; }
+[data-lang="en"] .lang-zh { display: none; }
+/* inline spans — show/hide */
+[data-lang="zh"] .inline-en { display: none; }
+[data-lang="en"] .inline-zh { display: none; }
+[data-lang="zh"] .inline-zh { display: inline; }
+[data-lang="en"] .inline-en { display: inline; }
+/* block elements */
+[data-lang="zh"] .block-zh { display: block; }
+[data-lang="zh"] .block-en { display: none; }
+[data-lang="en"] .block-zh { display: none; }
+[data-lang="en"] .block-en { display: block; }
+
+/* ---- Typography ---- */
+h1, h2, h3, h4 { font-weight: 600; line-height: 1.2; letter-spacing: -0.015em; }
+h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); margin-bottom: 1rem; }
+h2 { font-size: clamp(1.6rem, 3.5vw, 2.6rem); margin-bottom: 0.8rem; letter-spacing: -0.01em; }
+h3 { font-size: clamp(1.1rem, 2vw, 1.5rem); }
+p, .text-body { color: var(--text-secondary); max-width: 65ch; }
+.subtitle { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-tertiary); margin-bottom: 0.5rem; font-weight: 500; }
+.container { max-width: 1120px; margin: 0 auto; padding: 0 2rem; }
+.section { padding: 6rem 0; }
+.section-alt { background: var(--bg-alt); }
+
+/* ---- Buttons ---- */
+.btn { display: inline-block; padding: 0.7rem 1.8rem; border-radius: 30px; font-weight: 500; font-size: 0.9rem; cursor: default; text-decoration: none; }
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-outline { background: transparent; color: var(--text-primary); border: 1.5px solid var(--text-primary); }
+.btn-group { display: flex; gap: 0.8rem; flex-wrap: wrap; align-items: center; }
+.btn-group.center { justify-content: center; }
+
+/* ---- Navigation ---- */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--nav-blur); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--border-light); }
+.nav-inner { display: flex; justify-content: space-between; align-items: center; max-width: 1120px; margin: 0 auto; padding: 0.7rem 2rem; }
+.nav-left { display: flex; align-items: center; gap: 0.5rem; }
+.nav-logo { font-size: 1.1rem; font-weight: 650; letter-spacing: -0.01em; color: var(--text-primary); text-decoration: none; }
+.nav-logo-mark { margin-right: 2px; vertical-align: middle; }
+.nav-right { display: flex; align-items: center; gap: 1.5rem; }
+.nav-links { display: flex; gap: 1.5rem; list-style: none; font-size: 0.82rem; }
+.nav-links a { text-decoration: none; color: var(--text-secondary); font-weight: 450; transition: color 0.2s; }
+.nav-links a:hover { color: var(--text-primary); }
+.lang-toggle { font-size: 0.78rem; letter-spacing: 0.05em; color: var(--text-tertiary); border: 1px solid var(--border); border-radius: 18px; padding: 0.2rem 0.6rem; cursor: default; background: none; font-weight: 500; transition: border-color 0.2s; }
+.lang-toggle:hover { border-color: var(--text-secondary); }
+
+/* ---- Hero ---- */
+.hero { padding: 8rem 0 4rem; background: var(--bg-cool); position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; top: -20%; right: -8%; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(0,102,204,0.03) 0%, transparent 65%); }
+.hero::after { content: ''; position: absolute; bottom: -10%; left: -5%; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(0,102,204,0.02) 0%, transparent 60%); }
+.hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; position: relative; z-index: 1; }
+.hero h1 { margin-bottom: 1.2rem; }
+.hero p { font-size: 1.05rem; margin-bottom: 2rem; max-width: 50ch; line-height: 1.7; }
+.hero-tag { display: inline-block; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 1rem; border: 1px solid rgba(0,102,204,0.25); padding: 0.2rem 0.7rem; border-radius: 20px; background: rgba(0,102,204,0.04); }
+.hero-visual { position: relative; }
+.hero-shoe { width: 100%; max-width: 520px; height: auto; display: block; margin: 0 auto; }
+.hero-price { margin-top: 1.5rem; display: flex; align-items: baseline; gap: 0.5rem; }
+.hero-price .price-main { font-size: 1.5rem; font-weight: 650; color: var(--text-primary); }
+.hero-price .price-original { font-size: 0.95rem; color: var(--text-tertiary); text-decoration: line-through; }
+.hero-price .price-label { font-size: 0.78rem; color: var(--accent); font-weight: 500; background: rgba(0,102,204,0.08); padding: 0.15rem 0.5rem; border-radius: 12px; }
+
+/* ---- Tech / CORE ---- */
+.tech-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+.tech-card { background: #fff; padding: 0; border-radius: 18px; border: 1px solid var(--border-light); box-shadow: var(--card-shadow); overflow: hidden; }
+.tech-card-img { width: 100%; height: 240px; background: var(--bg-alt); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--border-light); overflow: hidden; }
+.tech-card-img img { width: 100%; height: 100%; object-fit: contain; }
+.tech-card-body { padding: 1.8rem 2rem 2.2rem; }
+.tech-card h3 { margin-bottom: 0.6rem; font-size: 1.1rem; }
+.tech-card p { font-size: 0.88rem; line-height: 1.7; }
+.tech-card .tech-icon { width: 40px; height: 40px; border-radius: 12px; background: var(--bg-alt); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
+.tech-card .tech-icon svg { width: 22px; height: 22px; stroke: var(--accent); fill: none; stroke-width: 1.8; }
+
+/* ---- Problem ---- */
+.problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+.problem-visual { position: relative; }
+.problem-chart { background: #fff; padding: 2rem; border-radius: 18px; border: 1px solid var(--border-light); box-shadow: var(--card-shadow); }
+.problem-chart svg { width: 100%; height: auto; }
+.problem-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 1.8rem; }
+.stat-card { background: #fff; padding: 1.2rem 1.5rem; border-radius: 14px; border: 1px solid var(--border-light); }
+.stat-card .number { font-size: 1.6rem; font-weight: 650; color: var(--accent); }
+.stat-card .label { font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.2rem; line-height: 1.4; }
+.stat-note { font-size: 0.75rem; color: var(--text-tertiary); margin-top: 0.8rem; }
+
+/* ---- Product ---- */
+.product-showcase { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+.product-visual { background: var(--bg-alt); border-radius: 20px; padding: 2.5rem; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.product-visual svg { width: 100%; max-width: 440px; height: auto; margin-bottom: 1.5rem; }
+.product-badge { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); font-weight: 600; border: 1px solid rgba(0,102,204,0.25); padding: 0.18rem 0.6rem; border-radius: 16px; display: inline-block; background: rgba(0,102,204,0.04); margin-bottom: 0.5rem; }
+.product-colors { display: flex; gap: 0.5rem; justify-content: center; margin: 0.8rem 0; }
+.product-colors span { width: 14px; height: 14px; border-radius: 50%; border: 1.5px solid var(--border); cursor: default; }
+.product-colors span.active { border-color: var(--text-primary); outline: 2px solid #fff; outline-offset: -3px; }
+.specs-table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; }
+.specs-table tr { border-bottom: 1px solid var(--border-light); }
+.specs-table td { padding: 0.7rem 0; font-size: 0.9rem; }
+.specs-table .spec-label { color: var(--text-tertiary); width: 35%; font-weight: 450; }
+.specs-table .spec-value { font-weight: 500; color: var(--text-primary); }
+.features-list { list-style: none; margin-top: 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; grid-auto-rows: 1fr; }
+.features-list li { background: var(--bg-alt); border-radius: 14px; padding: 0.9rem 1rem; font-size: 0.85rem; display: flex; gap: 0.7rem; align-items: flex-start; border: 1px solid var(--border-light); transition: border-color 0.2s; line-height: 1.5; }
+.features-list li .feat-icon { width: 28px; height: 28px; border-radius: 8px; background: rgba(0,102,204,0.08); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.features-list li .feat-icon svg { width: 15px; height: 15px; stroke: var(--accent); fill: none; stroke-width: 1.8; }
+.features-list li .feat-label { font-weight: 530; color: var(--text-primary); }
+.features-list li .feat-desc { color: var(--text-secondary); }
+
+/* ---- Upcoming ---- */
+.upcoming-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 2rem; }
+.upcoming-card { background: #fff; padding: 2rem; border-radius: 18px; border: 1px solid var(--border-light); text-align: center; box-shadow: var(--card-shadow); }
+.upcoming-card svg { width: 80%; max-width: 200px; height: auto; margin: 0 auto 1rem; display: block; }
+.upcoming-card h3 { margin-bottom: 0.2rem; font-size: 1.05rem; }
+.upcoming-card .price { font-weight: 600; font-size: 1rem; margin-top: 0.4rem; color: var(--text-primary); }
+.upcoming-card .eta { font-size: 0.78rem; color: var(--accent); margin-top: 0.2rem; font-weight: 500; }
+.upcoming-card p { font-size: 0.82rem; margin-top: 0.6rem; color: var(--text-secondary); }
+
+/* ---- Announcement ---- */
+.announce-banner { background: var(--bg-cool); padding: 3rem; border-radius: 20px; text-align: center; border: 1px solid var(--border-light); margin-top: 2rem; }
+.announce-banner h3 { margin-bottom: 0.5rem; }
+.announce-banner p { color: var(--text-secondary); max-width: 500px; margin: 0 auto; font-size: 0.9rem; }
+.announce-banner .btn-group { margin-top: 1.5rem; }
+
+/* ---- Story ---- */
+.story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+.founder-list { margin-top: 1.2rem; }
+.founder-item { padding: 0.8rem 0; display: flex; gap: 1rem; align-items: flex-start; }
+.founder-item:not(:last-child) { border-bottom: 1px solid var(--border-light); }
+.founder-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--bg-alt); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 600; color: var(--text-secondary); }
+.founder-info .name { font-weight: 600; color: var(--text-primary); font-size: 0.92rem; }
+.founder-info .title { font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.1rem; }
+
+/* ---- Footer ---- */
+footer { border-top: 1px solid var(--border-light); padding: 3rem 0 2rem; font-size: 0.82rem; color: var(--text-secondary); }
+.footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2rem; }
+.footer-col h4 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-tertiary); margin-bottom: 0.6rem; font-weight: 600; }
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 0.3rem; color: var(--text-secondary); font-size: 0.82rem; }
+.footer-bottom { margin-top: 2rem; padding-top: 1.2rem; border-top: 1px solid var(--border-light); display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-tertiary); flex-wrap: wrap; gap: 0.5rem; }
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hero-grid, .problem-grid, .product-showcase, .story-grid { grid-template-columns: 1fr; }
+  .tech-cards, .upcoming-grid { grid-template-columns: 1fr; }
+  .features-list { grid-template-columns: 1fr; }
+  .problem-stats { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr; }
+  .hero { padding: 6rem 0 3rem; }
+  .section { padding: 3.5rem 0; }
+  .hero-price { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+<div class="nav-inner">
+<div class="nav-left">
+<img src="brand/lulucat_logo.png" width="30" height="30" alt="lulucat" style="vertical-align: middle; margin-right: 6px;">
+<span class="nav-logo">lulucat</span>
+</div>
+<div class="nav-right">
+<ul class="nav-links">
+  <li><a href="#tech"><span class="lang-zh">韧力释放</span><span class="lang-en">CORE System</span></a></li>
+  <li><a href="#problem"><span class="lang-zh">韧力疲劳</span><span class="lang-en">The Problem</span></a></li>
+  <li><a href="#product"><span class="lang-zh">悦行 1</span><span class="lang-en">Strider 1</span></a></li>
+  <li><a href="#story"><span class="lang-zh">品牌</span><span class="lang-en">About</span></a></li>
+</ul>
+<button class="lang-toggle" onclick="toggleLang()">EN</button>
+</div>
+</div>
+</nav>
+
+<script>
+function toggleLang() {
+  const html = document.documentElement;
+  const btn = document.querySelector('.lang-toggle');
+  if (html.getAttribute('data-lang') === 'zh') {
+    html.setAttribute('data-lang', 'en');
+    btn.textContent = '中';
+  } else {
+    html.setAttribute('data-lang', 'zh');
+    btn.textContent = 'EN';
+  }
+}
+</script>
+
+<!-- ==================== HERO ==================== -->
+<section class="hero">
+<div class="container hero-grid">
+<div>
+<div class="hero-tag">2026 · <span class="lang-zh">产品宣发</span><span class="lang-en">Pre-Launch</span></div>
+
+<h1 class="block-zh">改善关节韧力疲劳的专业运动鞋</h1>
+<h1 class="block-en">Running Shoes Designed for Joint Resilience Fatigue</h1>
+
+<p class="block-zh">跑鞋花了几十年研究缓震和回弹。但从来没有人认真问过——你的关节韧力，累了吗？lulucat 从运动生物力学出发，不只是缓冲落地，而是释放每一步的累积韧力。</p>
+<p class="block-en">For decades, running shoes focused on cushioning and energy return. But no one has seriously asked — are your joints getting tired? lulucat starts from sports biomechanics. Not just absorbing impact, but releasing cumulative load from every stride.</p>
+
+<div class="btn-group">
+<a class="btn btn-primary" href="#tech"><span class="lang-zh">了解 CORE 系统</span><span class="lang-en">Explore CORE System</span></a>
+<a class="btn btn-outline" href="#product"><span class="lang-zh">预约早鸟提醒</span><span class="lang-en">Get Early Access</span></a>
+</div>
+
+<div class="hero-price">
+<span class="price-main"><span class="lang-zh">¥799</span><span class="lang-en">$129</span></span>
+<span class="price-original"><span class="lang-zh">¥999</span><span class="lang-en">$159</span></span>
+<span class="price-label"><span class="lang-zh">早鸟价</span><span class="lang-en">Early Bird</span></span>
+</div>
+</div>
+
+<div class="hero-visual">
+  <img src="brand/hero-final.png" alt="lulucat 悦行一号" class="hero-shoe" style="width:100%; max-width:520px; height:auto; display:block; margin:0 auto; border-radius:16px;">
+</div>
+</div>
+</section>
+
+<!-- ==================== TECH / CORE SYSTEM ==================== -->
+<section class="section" id="tech">
+<div class="container" style="text-align: center; margin-bottom: 2rem;">
+<p class="subtitle">Cumulative Overload Release Engineering</p>
+<h2 class="block-zh">CORE 韧力释放系统</h2>
+<h2 class="block-en">The CORE System</h2>
+<p class="block-zh" style="margin: 0 auto; max-width: 520px;">lulucat 历时 18 个月自主研发的中底技术系统 — 不是"压扁回弹"，而是梯度疏导。</p>
+<p class="block-en" style="margin: 0 auto; max-width: 520px;">An 18-month in-house midsole innovation — not "squish and bounce," but gradient load dispersion.</p>
+</div>
+
+<div class="container tech-cards">
+<div class="tech-card">
+<div class="tech-card-img"><img src="brand/tech-load.png" alt="韧力传感中底示意图" loading="lazy"></div>
+<div class="tech-card-body">
+<div class="tech-icon">
+<svg viewBox="0 0 24 24"><path d="M3 12h18M12 3v18"/><circle cx="12" cy="12" r="9"/></svg>
+</div>
+<h3 class="block-zh">韧力传感中底</h3>
+<h3 class="block-en">Load-Sensing Midsole</h3>
+<p class="block-zh">三层梯度密度 EVA — 外层柔韧吸收触地冲击，中层梯度变形将力量水平分散，内层高密度基底控制过度形变，防止韧带被动过度拉伸。</p>
+<p class="block-en">Three-layer density EVA: soft outer absorbs impact, gradient mid-layer disperses force laterally, high-density base controls excessive deformation.</p>
+</div>
+</div>
+
+<div class="tech-card">
+<div class="tech-card-img"><img src="brand/tech-jfi.png" alt="JFI 韧力疲劳指示示意图" loading="lazy"></div>
+<div class="tech-card-body">
+<div class="tech-icon">
+<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18"/></svg>
+</div>
+<h3 class="block-zh">JFI 韧力疲劳指示</h3>
+<h3 class="block-en">JFI Wear Indicator</h3>
+<p class="block-zh">JFI (Joint Fatigue Index) 色标鞋垫层 — 新品深绿色；累计约 800 km 转为浅黄；约 1,200 km 转为暖橙色，提示更换。</p>
+<p class="block-en">Color-coded insole: deep green when new, shifts to yellow at ~800 km, warm orange at ~1,200 km — making cumulative load visible.</p>
+</div>
+</div>
+
+<div class="tech-card">
+<div class="tech-card-img"><img src="brand/tech-upper.png" alt="自适应鞋面系统示意图" loading="lazy"></div>
+<div class="tech-card-body">
+<div class="tech-icon">
+<svg viewBox="0 0 24 24"><path d="M4 8c0 0 2-4 8-4s8 4 8 4"/><path d="M4 16c0 0 2 4 8 4s8-4 8-4"/><path d="M8 5v14M16 5v14"/></svg>
+</div>
+<h3 class="block-zh">自适应鞋面系统</h3>
+<h3 class="block-en">Adaptive Upper System</h3>
+<p class="block-zh">动态飞织 + 不对称鞋带（内紧外松）+ 后跟韧力锁定 TPU 环 — 针对足踝韧带非对称负荷模式设计。</p>
+<p class="block-en">Dynamic knit + asymmetric lacing (tight in, loose out) + heel-lock TPU ring — engineered for the asymmetric load profile of ankle ligaments.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ==================== PROBLEM ==================== -->
+<section class="section section-alt" id="problem">
+<div class="container">
+<p class="subtitle" style="text-align: center;">The Problem</p>
+<h2 style="text-align: center;" class="block-zh">关节韧力疲劳 — 被忽略的灰色区间</h2>
+<h2 style="text-align: center;" class="block-en">Joint Resilience Fatigue — The Gray Zone</h2>
+<p style="text-align: center; max-width: 480px; margin: 0 auto 3rem;" class="block-zh">不是酸痛，不是疼痛，而是跑完一段距离后那种"关节发涩"的微妙感觉。</p>
+<p style="text-align: center; max-width: 480px; margin: 0 auto 3rem;" class="block-en">Not soreness, not pain — that subtle "joint stiffness" sensation after a certain distance.</p>
+
+<div class="problem-grid">
+<div>
+<h3 class="block-zh">一个被整个行业忽略的问题</h3>
+<h3 class="block-en">An Overlooked Problem</h3>
+<p class="block-zh" style="margin-bottom: 1.2rem;">传统跑鞋帮您扛住了冲击，但累积在韧带和关节之间的<strong>韧力疲劳</strong>，被整个运动鞋行业忽略了太久。Elin Larsson 在斯坦福大学的研究中发现：跑者在感知到酸痛之前，关节韧力的衰减已经平均持续了约 <strong>2.3 公里</strong>。</p>
+<p class="block-en" style="margin-bottom: 1.2rem;">Traditional shoes handle impact well, but the cumulative resilience fatigue in ligaments and joints has been overlooked. Research at Stanford suggests joint resilience begins degrading an average of <strong>2.3 km</strong> before a runner feels any discomfort.</p>
+<p class="block-zh" style="font-size: 0.9rem;">这个「灰色区间」是运动表现的隐形天花板，也是慢性损伤的温床。改善关节韧力疲劳不是治疗伤病 — 而是让每一步更可持续。</p>
+<p class="block-en" style="font-size: 0.9rem;">This "gray zone" is an invisible ceiling on performance and a breeding ground for chronic issues. Addressing joint resilience fatigue isn't about treating injury — it's about making every stride sustainable.</p>
+
+<div class="problem-stats">
+<div class="stat-card">
+<div class="number">2.3 km</div>
+<div class="block-zh label">跑者感知到酸痛前，关节韧力已开始衰减</div>
+<div class="block-en label">Distance joint resilience declines before pain is felt</div>
+</div>
+<div class="stat-card">
+<div class="number">37%</div>
+<div class="block-zh label">CORE 系统内部测试中韧力疲劳感的降低</div>
+<div class="block-en label">Reduction in reported resilience fatigue (lab test)</div>
+</div>
+</div>
+<p class="stat-note"><span class="lang-zh">* 37% 数据源自 lulucat 内部实验室测试，非独立第三方验证。</span><span class="lang-en">* 37% figure from lulucat internal lab testing, not independently verified.</span></p>
+</div>
+
+<div class="problem-visual">
+<div class="problem-chart">
+<svg viewBox="0 0 380 220" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="line-grad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0066CC"/>
+      <stop offset="100%" stop-color="#004499"/>
+    </linearGradient>
+    <linearGradient id="fill-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="rgba(0,102,204,0.12)"/>
+      <stop offset="100%" stop-color="rgba(0,102,204,0.02)"/>
+    </linearGradient>
+  </defs>
+  <!-- grid -->
+  <line x1="40" y1="40" x2="40" y2="180" stroke="#E8E8ED" stroke-width="1"/>
+  <line x1="40" y1="180" x2="340" y2="180" stroke="#E8E8ED" stroke-width="1"/>
+  <line x1="40" y1="130" x2="340" y2="130" stroke="#E8E8ED" stroke-width="0.5" stroke-dasharray="4,4"/>
+  <line x1="40" y1="80" x2="340" y2="80" stroke="#E8E8ED" stroke-width="0.5" stroke-dasharray="4,4"/>
+  <!-- area fill -->
+  <path d="M 40,60 C 80,58 120,55 160,60 C 200,68 240,100 280,145 C 310,168 330,178 340,180 L 340,180 L 40,180 Z" fill="url(#fill-grad)"/>
+  <!-- line -->
+  <path d="M 40,60 C 80,58 120,55 160,60 C 200,68 240,100 280,145 C 310,168 330,178 340,180" stroke="url(#line-grad)" stroke-width="2.5" fill="none"/>
+  <!-- gray zone highlight -->
+  <rect x="200" y="68" width="60" height="112" fill="rgba(0,0,0,0.03)" rx="2"/>
+  <!-- zone label -->
+  <text x="230" y="195" font-family="-apple-system, sans-serif" font-size="8" fill="#86868b" text-anchor="middle" letter-spacing="1" class="lang-zh">灰色区间</text>
+  <text x="230" y="195" font-family="-apple-system, sans-serif" font-size="8" fill="#86868b" text-anchor="middle" letter-spacing="1" class="lang-en">GRAY ZONE</text>
+  <!-- labels -->
+  <text x="60" y="50" font-family="-apple-system, sans-serif" font-size="7" fill="#aeaeb2" class="lang-zh">韧力水平</text>
+  <text x="60" y="50" font-family="-apple-system, sans-serif" font-size="7" fill="#aeaeb2" class="lang-en">RESILIENCE</text>
+  <text x="340" y="192" font-family="-apple-system, sans-serif" font-size="7" fill="#aeaeb2" text-anchor="end" class="lang-zh">跑步距离 →</text>
+  <text x="340" y="192" font-family="-apple-system, sans-serif" font-size="7" fill="#aeaeb2" text-anchor="end" class="lang-en">DISTANCE →</text>
+  <!-- pain onset marker -->
+  <line x1="300" y1="178" x2="300" y2="155" stroke="#ff3b30" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <text x="300" y="150" font-family="-apple-system, sans-serif" font-size="7" fill="#ff3b30" text-anchor="middle">
+    <tspan class="lang-zh">酸痛出现</tspan>
+    <tspan class="lang-en">PAIN</tspan>
+  </text>
+  <!-- dot -->
+  <circle cx="300" cy="160" r="3" fill="#ff3b30" opacity="0.6"/>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ==================== PRODUCT ==================== -->
+<section class="section" id="product">
+<div class="container">
+<p class="subtitle" style="text-align: center;">Flagship Model</p>
+<h2 style="text-align: center;" class="block-zh">lulucat 悦行一号</h2>
+<h2 style="text-align: center;" class="block-en">lulucat Strider 1</h2>
+<p style="text-align: center; max-width: 420px; margin: 0 auto 2.5rem;" class="block-zh">日常城市跑鞋 · 首批量产型号 · 早鸟预订已开启</p>
+<p style="text-align: center; max-width: 420px; margin: 0 auto 2.5rem;" class="block-en">Everyday urban runner · First production model · Early bird open</p>
+
+<div class="product-showcase">
+<div class="product-visual" style="background: none; padding: 0;">
+  <img src="brand/product-final.png" alt="lulucat 悦行一号" style="width:100%; max-width:460px; height:auto; display:block; margin:0 auto; border-radius:16px;">
+
+<div class="product-badge"><span class="lang-zh">旗舰型号</span><span class="lang-en">Flagship</span></div>
+<p style="font-weight: 500; font-size: 0.92rem; color: var(--text-primary);"><span class="block-zh">lulucat 悦行一号</span><span class="block-en">lulucat Strider 1</span></p>
+<p style="font-size: 0.78rem; color: var(--text-tertiary);"><span class="lang-zh">石板灰 · 首发配色</span><span class="lang-en">Slate Gray · Launch Color</span></p>
+<div class="product-colors">
+<span class="active" style="background: #3A3A3C;"></span>
+<span style="background: #F2F2F5; border-color: #D2D2D7;"></span>
+<span style="background: #004499;"></span>
+</div>
+<div class="hero-price" style="justify-content: center; margin-top: 0.8rem;">
+<span class="price-main"><span class="lang-zh">¥799</span><span class="lang-en">$129</span></span>
+<span class="price-original"><span class="lang-zh">¥999</span><span class="lang-en">$159</span></span>
+</div>
+</div>
+
+<div>
+<h3 class="block-zh">核心特点</h3>
+<h3 class="block-en">Key Features</h3>
+<div class="block-zh">
+<ul class="features-list">
+  <li><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><div><div class="feat-label">CORE 韧力释放中底</div><div class="feat-desc">梯度密度，疏导韧力疲劳</div></div></li>
+  <li><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div><div><div class="feat-label">JFI 韧力疲劳指示</div><div class="feat-desc">鞋垫色标，可视化损耗状态</div></div></li>
+  <li><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M4 7c0 0 4-3 8-3s8 3 8 3"/><path d="M4 17c0 0 4 3 8 3s8-3 8-3"/><path d="M8 4v16M16 4v16"/></svg></div><div><div class="feat-label">动态飞织鞋面</div><div class="feat-desc">自适应包裹，减少脚背压迫</div></div></li>
+  <li><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M6 3v18M18 3v18M3 6h18M3 18h18"/></svg></div><div><div class="feat-label">不对称鞋带引导</div><div class="feat-desc">内紧外松，匹配踝关节韧力分布</div></div></li>
+  <li><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/></svg></div><div><div class="feat-label">韧力锁定后跟环</div><div class="feat-desc">TPU 沿跟骨弧度分布</div></div></li>
+  <li><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M4 12c0 0 3-6 8-6s8 6 8 6-3 6-8 6-8-6-8-6z"/><circle cx="12" cy="12" r="2"/></svg></div><div><div class="feat-label">Ortholite 抗菌鞋垫</div><div class="feat-desc">额外一层韧力吸收</div></div></li>
+  <li><div class="feat-icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 10h18"/></svg></div><div><div class="feat-label">耐磨橡胶外底</div><div class="feat-desc">关键触地区域覆盖率约 85%</div></div></li>
+</ul>
+</div>
+
+<div class="block-en">
+<ul class="features-list">
+  <li><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><div><div class="feat-label">CORE Load-Release Midsole</div><div class="feat-desc">Gradient density disperses cumulative fatigue</div></div></li>
+  <li><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div><div><div class="feat-label">JFI Wear Indicator</div><div class="feat-desc">Color-coded insole shows wear level</div></div></li>
+  <li><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M4 7c0 0 4-3 8-3s8 3 8 3"/><path d="M4 17c0 0 4 3 8 3s8-3 8-3"/><path d="M8 4v16M16 4v16"/></svg></div><div><div class="feat-label">Dynamic Knit Upper</div><div class="feat-desc">Adaptive fit, reduced instep pressure</div></div></li>
+  <li><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M6 3v18M18 3v18M3 6h18M3 18h18"/></svg></div><div><div class="feat-label">Asymmetric Lacing</div><div class="feat-desc">Tight in, loose out, ankle load matched</div></div></li>
+  <li><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/></svg></div><div><div class="feat-label">Heel-Lock TPU Ring</div><div class="feat-desc">Contoured to calcaneus geometry</div></div></li>
+  <li><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M4 12c0 0 3-6 8-6s8 6 8 6-3 6-8 6-8-6-8-6z"/><circle cx="12" cy="12" r="2"/></svg></div><div><div class="feat-label">Ortholite Antimicrobial Insole</div><div class="feat-desc">Extra resilience layer</div></div></li>
+  <li><div class="feat-icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 10h18"/></svg></div><div><div class="feat-label">Durable Rubber Outsole</div><div class="feat-desc">~85% coverage in key strike zones</div></div></li>
+</ul>
+</div>
+
+<table class="specs-table">
+<tr><td class="spec-label"><span class="lang-zh">上市状态</span><span class="lang-en">Status</span></td>
+<td class="spec-value"><span class="lang-zh">产品宣发 · 量产前最终测试</span><span class="lang-en">Pre-launch · Final pre-production testing</span></td></tr>
+<tr><td class="spec-label"><span class="lang-zh">建议场景</span><span class="lang-en">Best for</span></td>
+<td class="spec-value"><span class="lang-zh">5–15 km 跑步 / 健走 / 通勤</span><span class="lang-en">5–15 km running, walking, commute</span></td></tr>
+<tr><td class="spec-label"><span class="lang-zh">重量</span><span class="lang-en">Weight</span></td>
+<td class="spec-value">~255 g <span class="lang-zh">（US9 单只）</span><span class="lang-en">(US9 single)</span></td></tr>
+<tr><td class="spec-label"><span class="lang-zh">落差</span><span class="lang-en">Drop</span></td>
+<td class="spec-value">6 mm</td></tr>
+<tr><td class="spec-label"><span class="lang-zh">中底厚度</span><span class="lang-en">Stack</span></td>
+<td class="spec-value"><span class="lang-zh">前掌 22 mm / 后掌 28 mm</span><span class="lang-en">22 mm forefoot / 28 mm heel</span></td></tr>
+<tr><td class="spec-label"><span class="lang-zh">零售价</span><span class="lang-en">Retail</span></td>
+<td class="spec-value"><span class="lang-zh">¥999</span><span class="lang-en">$159</span></td></tr>
+<tr><td class="spec-label"><span class="lang-zh">早鸟价</span><span class="lang-en">Early Bird</span></td>
+<td class="spec-value"><span class="lang-zh">¥799</span><span class="lang-en">$129</span></td></tr>
+</table>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ==================== UPCOMING ==================== -->
+<section class="section section-alt">
+<div class="container" style="text-align: center;">
+<p class="subtitle">Pre-Launch Preview</p>
+<h2 class="block-zh">后续款式</h2>
+<h2 class="block-en">Upcoming Models</h2>
+<p style="margin-bottom: 2rem; max-width: 400px; margin-left: auto; margin-right: auto;" class="block-zh">悦行一号仅是第一步 — 我们正在构建完整的全场景跑鞋矩阵。</p>
+<p style="margin-bottom: 2rem; max-width: 400px; margin-left: auto; margin-right: auto;" class="block-en">Strider 1 is just the beginning — we're building a full running shoe lineup.</p>
+</div>
+
+<div class="container upcoming-grid">
+
+<div class="upcoming-card">
+<img src="brand/nomad-x.png" alt="Nomad X" style="width:80%; max-width:220px; height:auto; margin: 0 auto 1rem; display: block; border-radius:12px;">
+  <h3><span class="lang-zh">旷野</span><span class="lang-en">Nomad X</span></h3>
+<div class="price"><span class="lang-zh">¥1,099</span><span class="lang-en">$179</span></div>
+<div class="eta"><span class="lang-zh">预计 2027 年春</span><span class="lang-en">Spring 2027</span></div>
+<p class="block-zh">全地形训练鞋 · 增厚 CORE 中底 · Vibram® 大底</p>
+<p class="block-en">All-terrain trainer · Reinforced CORE midsole · Vibram® outsole</p>
+</div>
+
+<div class="upcoming-card">
+<img src="brand/pulse-pro.png" alt="Pulse Pro" style="width:80%; max-width:220px; height:auto; margin: 0 auto 1rem; display: block; border-radius:12px;">
+  <h3><span class="lang-zh">星驰</span><span class="lang-en">Pulse Pro</span></h3>
+<div class="price"><span class="lang-zh">¥1,599</span><span class="lang-en">$259</span></div>
+<div class="eta"><span class="lang-zh">预计 2027 年夏</span><span class="lang-en">Summer 2027</span></div>
+<p class="block-zh">竞速鞋 · PEBAX 超临界 CORE · 全掌碳板 · ~205g</p>
+<p class="block-en">Race day · PEBAX supercritical CORE · Full carbon plate · ~205g</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ==================== ANNOUNCEMENT ==================== -->
+<section class="section" style="padding: 2rem 0 4rem;">
+<div class="container">
+<div class="announce-banner">
+<h3 class="block-zh">📢 产品宣发期</h3>
+<h3 class="block-en">📢 Pre-Launch Phase</h3>
+<p class="block-zh">lulucat 悦行一号正处于量产前最终测试阶段。正式发售时间将在未来数周内公布。预约早鸟通知，立省 ¥200。</p>
+<p class="block-en">Strider 1 is in its final pre-production testing phase. Official launch details coming in the next few weeks. Register for early access and save $30.</p>
+<div class="btn-group center">
+<a class="btn btn-primary" href="#product"><span class="lang-zh">预约早鸟通知</span><span class="lang-en">Get Early Access</span></a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ==================== BRAND STORY ==================== -->
+<section class="section section-alt" id="story">
+<div class="container">
+<p class="subtitle" style="text-align: center;">About</p>
+<h2 style="text-align: center;" class="block-zh">来自硅谷 · 重新定义「韧力」</h2>
+<h2 style="text-align: center;" class="block-en">From Silicon Valley · Redefining Resilience</h2>
+
+<div class="story-grid" style="margin-top: 2rem;">
+<div>
+<p class="block-zh" style="margin-bottom: 1.2rem;">lulucat 成立于 2022 年加州帕洛阿尔托。创始团队注意到一个被行业忽略的事实：全球跑鞋品牌竞争了几十年缓震和回弹，但从未有一个品牌专门关注运动中关节韧力的累积疲劳。</p>
+<p class="block-en" style="margin-bottom: 1.2rem;">lulucat was founded in 2022 in Palo Alto, California. The founding team noticed a blind spot: while running brands competed for decades on cushioning and energy return, none had focused on cumulative joint resilience fatigue during motion.</p>
+<p class="block-zh" style="font-size: 0.9rem; color: var(--text-tertiary);">品牌名称源自创始人之一养的猫 Lulu。已完成种子轮融资 · 首款跑鞋悦行一号量产前最终测试。</p>
+<p class="block-en" style="font-size: 0.9rem; color: var(--text-tertiary);">Named after one founder's cat, Lulu. Seed-funded · Strider 1 in final pre-production testing.</p>
+</div>
+
+<div>
+<h3 style="margin-bottom: 0.8rem; font-size: 1rem;" class="block-zh">联合创始人</h3>
+<h3 style="margin-bottom: 0.8rem; font-size: 1rem;" class="block-en">Co-Founders</h3>
+
+<div class="founder-list">
+
+<div class="founder-item">
+<div class="founder-avatar">EL</div>
+<div class="founder-info">
+<div class="name">Elin Larsson</div>
+<div class="title block-zh">运动生物力学博士 · 前斯坦福博士后 · 关节负载与韧带疲劳</div>
+<div class="title block-en">PhD Sports Biomechanics · Former Stanford Postdoc · Joint load & ligament fatigue</div>
+</div>
+</div>
+
+<div class="founder-item">
+<div class="founder-avatar">DC</div>
+<div class="founder-info">
+<div class="name">David Chen</div>
+<div class="title block-zh">运动康复师 · 前 Nike 运动研究实验室 (NSRL) 工程师</div>
+<div class="title block-en">Sports Rehabilitation · Former Nike NSRL Engineer</div>
+</div>
+</div>
+
+<div class="founder-item">
+<div class="founder-avatar">MR</div>
+<div class="founder-info">
+<div class="name">Marcus Rivera</div>
+<div class="title block-zh">连续创业者 · 前 Allbirds 产品经理</div>
+<div class="title block-en">Serial entrepreneur · Former Allbirds PM</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer>
+<div class="container">
+<div class="footer-inner">
+<div>
+<div style="display: flex; align-items: center; gap: 8px; font-weight: 650; color: var(--text-primary); margin-bottom: 0.4rem;">
+  <img src="brand/lulucat_logo.png" width="26" height="26" alt="" style="vertical-align: middle;">
+  <span style="font-size: 1.1rem;">lulucat</span>
+</div>
+<p class="block-zh" style="font-size: 0.82rem;">美国运动鞋品牌 · 专注缓解关节韧力疲劳<br>研发：硅谷 · 总部：纽约</p>
+<p class="block-en" style="font-size: 0.82rem;">US athletic footwear brand · Focused on joint resilience fatigue<br>R&D: Silicon Valley · HQ: New York</p>
+</div>
+<div class="footer-col">
+<h4><span class="lang-zh">产品</span><span class="lang-en">Products</span></h4>
+<ul>
+<li><span class="lang-zh">悦行一号</span><span class="lang-en">Strider 1</span></li>
+<li><span class="lang-zh">旷野</span><span class="lang-en">Nomad X</span></li>
+<li><span class="lang-zh">星驰</span><span class="lang-en">Pulse Pro</span></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4><span class="lang-zh">关于</span><span class="lang-en">About</span></h4>
+<ul>
+<li><span class="lang-zh">CORE 系统</span><span class="lang-en">CORE System</span></li>
+<li><span class="lang-zh">关节韧力疲劳</span><span class="lang-en">Joint Resilience Fatigue</span></li>
+<li><span class="lang-zh">JFI 指示层</span><span class="lang-en">JFI Indicator</span></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<span>© 2026 lulucat. All rights reserved.</span>
+</div>
+</div>
+</footer>
+
+</body>
+</html>
