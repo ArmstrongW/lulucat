@@ -6,6 +6,30 @@
 <title>lulucat｜悦行一号 — 改善关节韧力疲劳的专业运动鞋</title>
 <meta name="description" content="lulucat 是美国新一代运动鞋品牌，专注缓解关节韧力疲劳。首发 Strider 1（悦行一号）搭载 CORE 韧力释放中底，早鸟预订开启。">
 <meta name="keywords" content="关节韧力疲劳, lulucat, 韧力释放, CORE 韧力释放中底, Strider 1, 运动鞋, 跑鞋">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://lulucat.us/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lulucat.us/">
+<meta property="og:title" content="lulucat｜悦行一号 — 改善关节韧力疲劳的专业运动鞋">
+<meta property="og:description" content="lulucat 是美国新一代运动鞋品牌，专注缓解关节韧力疲劳。首发 Strider 1（悦行一号）搭载 CORE 韧力释放中底，早鸟预订开启。">
+<meta property="og:image" content="https://lulucat.us/brand/hero-final.png">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:locale:alternate" content="en_US">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="lulucat｜悦行一号 — 改善关节韧力疲劳的专业运动鞋">
+<meta name="twitter:description" content="lulucat is a next-generation running shoe brand focused on Joint Resilience Fatigue. Introducing the Strider 1 with the CORE midsole system.">
+<meta name="twitter:image" content="https://lulucat.us/brand/hero-final.png">
+
+<!-- hreflang -->
+<link rel="alternate" hreflang="zh-CN" href="https://lulucat.us/">
+<link rel="alternate" hreflang="en-US" href="https://lulucat.us/">
+<link rel="alternate" hreflang="x-default" href="https://lulucat.us/">
+
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -191,6 +215,75 @@ footer { border-top: 1px solid var(--border-light); padding: 3rem 0 2rem; font-s
   .hero-price { flex-wrap: wrap; }
 }
 </style>
+
+<!-- Structured Data (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://lulucat.us/#organization",
+      "name": "lulucat",
+      "alternateName": "lulucat Inc.",
+      "url": "https://lulucat.us/",
+      "logo": "https://lulucat.us/brand/lulucat_logo.png",
+      "foundingDate": "2022",
+      "description": "A next-generation running shoe company headquartered in New York with R&D in Silicon Valley, focused on Joint Resilience Fatigue.",
+      "founder": [
+        {"@type": "Person", "name": "Elin Larsson"},
+        {"@type": "Person", "name": "David Chen"},
+        {"@type": "Person", "name": "Marcus Rivera"}
+      ]
+    },
+    {
+      "@type": "Product",
+      "@id": "https://lulucat.us/#product",
+      "name": "lulucat Strider 1 — 悦行一号",
+      "alternateName": "悦行一号",
+      "description": "Premium running shoe designed to alleviate Joint Resilience Fatigue (关节韧力疲劳), featuring the CORE (Cumulative Overload Release Engineering) midsole system with load-sensing, JFI wear indicator, and adaptive upper.",
+      "brand": {"@id": "https://lulucat.us/#organization"},
+      "image": "https://lulucat.us/brand/product-final.png",
+      "category": "Running Shoes",
+      "offers": {
+        "@type": "Offer",
+        "name": "Strider 1 Early Bird",
+        "price": "799",
+        "priceCurrency": "CNY",
+        "availability": "https://schema.org/PreOrder",
+        "priceValidUntil": "2027-12-31",
+        "url": "https://lulucat.us/"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://lulucat.us/#website",
+      "name": "lulucat",
+      "alternateName": "lulucat 悦行一号",
+      "url": "https://lulucat.us/",
+      "description": "改善关节韧力疲劳的专业运动鞋品牌",
+      "inLanguage": ["zh-CN", "en-US"],
+      "publisher": {"@id": "https://lulucat.us/#organization"}
+    }
+  ]
+}
+</script>
+
+<!-- Auto-detect browser language -->
+<script>
+(function() {
+  var lang = navigator.language || navigator.userLanguage || 'en';
+  var html = document.documentElement;
+  if (lang.indexOf('zh') !== -1) {
+    html.setAttribute('data-lang', 'zh');
+    html.setAttribute('lang', 'zh-CN');
+  } else {
+    html.setAttribute('data-lang', 'en');
+    html.setAttribute('lang', 'en');
+  }
+})();
+</script>
+
 </head>
 <body>
 
@@ -218,12 +311,21 @@ function toggleLang() {
   const btn = document.querySelector('.lang-toggle');
   if (html.getAttribute('data-lang') === 'zh') {
     html.setAttribute('data-lang', 'en');
+    html.setAttribute('lang', 'en');
     btn.textContent = '中';
   } else {
     html.setAttribute('data-lang', 'zh');
+    html.setAttribute('lang', 'zh-CN');
     btn.textContent = 'EN';
   }
 }
+// Initialize button text based on current language
+document.addEventListener('DOMContentLoaded', function() {
+  var btn = document.querySelector('.lang-toggle');
+  if (btn && document.documentElement.getAttribute('data-lang') === 'en') {
+    btn.textContent = '中';
+  }
+});
 </script>
 
 <!-- ==================== HERO ==================== -->
@@ -240,7 +342,12 @@ function toggleLang() {
 
 <div class="btn-group">
 <a class="btn btn-primary" href="#tech"><span class="lang-zh">了解 CORE 系统</span><span class="lang-en">Explore CORE System</span></a>
-<a class="btn btn-outline" href="#product"><span class="lang-zh">预约早鸟提醒</span><span class="lang-en">Get Early Access</span></a>
+<a class="btn btn-outline lang-zh" href="mailto:preorder@lulucat.us?subject=%E9%A2%84%E8%B4%AD%E7%94%B3%E8%AF%B7%20-%20lulucat%20%E6%82%A6%E8%A1%8C%E4%B8%80%E5%8F%B7&body=---%20%E9%A2%84%E8%B4%AD%E7%94%B3%E8%AF%B7%20---%0D%0A%0D%0A%EF%BC%88%E9%99%90%E8%B4%AD%E8%A7%84%E5%88%99%EF%BC%9A%E6%AF%8F%E4%BA%BA%E6%9C%80%E5%A4%9A2%E5%8F%8C%EF%BC%8C%E5%8F%91%E9%80%81%E5%8D%B3%E4%BB%A3%E8%A1%A8%E8%AE%A4%E5%90%8C%E7%9B%B8%E5%85%B3%E9%A2%84%E8%B4%AD%E8%A7%84%E5%88%99%EF%BC%89%0D%0A%0D%0A%E5%A7%93%E5%90%8D%EF%BC%9A%0D%0A%E6%95%B0%E9%87%8F%EF%BC%9A%0D%0A%E5%B0%BA%E7%A0%81%EF%BC%88EU%EF%BC%89%EF%BC%9A%0D%0A%E5%A4%87%E6%B3%A8%EF%BC%9A">
+<svg style="width:15px;height:15px;vertical-align:middle;margin-right:6px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 4l10 8 10-8"/></svg>
+<span>申请预购资格</span></a>
+<a class="btn btn-outline lang-en" href="mailto:preorder@lulucat.us?subject=Pre-order%20-%20lulucat%20Strider%201&body=---%20Pre-order%20Application%20---%0D%0A%0D%0A%28Limit%3A%20max%202%20pairs%20per%20person.%20Submission%20constitutes%20acceptance%20of%20pre-order%20terms.%29%0D%0A%0D%0AName%3A%0D%0AQuantity%3A%0D%0ASize%20%28EU%29%3A%0D%0ANotes%3A">
+<svg style="width:15px;height:15px;vertical-align:middle;margin-right:6px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 4l10 8 10-8"/></svg>
+<span>Apply for Pre-order</span></a>
 </div>
 
 <div class="hero-price">
@@ -506,7 +613,12 @@ function toggleLang() {
 <p class="block-zh">lulucat 悦行一号正处于量产前最终测试阶段。正式发售时间将在未来数周内公布。预约早鸟通知，立省 ¥200。</p>
 <p class="block-en">Strider 1 is in its final pre-production testing phase. Official launch details coming in the next few weeks. Register for early access and save $30.</p>
 <div class="btn-group center">
-<a class="btn btn-primary" href="#product"><span class="lang-zh">预约早鸟通知</span><span class="lang-en">Get Early Access</span></a>
+<a class="btn btn-primary lang-zh" href="mailto:preorder@lulucat.us?subject=%E9%A2%84%E8%B4%AD%E7%94%B3%E8%AF%B7%20-%20lulucat%20%E6%82%A6%E8%A1%8C%E4%B8%80%E5%8F%B7&body=---%20%E9%A2%84%E8%B4%AD%E7%94%B3%E8%AF%B7%20---%0D%0A%0D%0A%EF%BC%88%E9%99%90%E8%B4%AD%E8%A7%84%E5%88%99%EF%BC%9A%E6%AF%8F%E4%BA%BA%E6%9C%80%E5%A4%9A2%E5%8F%8C%EF%BC%8C%E5%8F%91%E9%80%81%E5%8D%B3%E4%BB%A3%E8%A1%A8%E8%AE%A4%E5%90%8C%E7%9B%B8%E5%85%B3%E9%A2%84%E8%B4%AD%E8%A7%84%E5%88%99%EF%BC%89%0D%0A%0D%0A%E5%A7%93%E5%90%8D%EF%BC%9A%0D%0A%E6%95%B0%E9%87%8F%EF%BC%9A%0D%0A%E5%B0%BA%E7%A0%81%EF%BC%88EU%EF%BC%89%EF%BC%9A%0D%0A%E5%A4%87%E6%B3%A8%EF%BC%9A">
+<svg style="width:15px;height:15px;vertical-align:middle;margin-right:6px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 4l10 8 10-8"/></svg>
+<span>申请预购资格</span></a>
+<a class="btn btn-primary lang-en" href="mailto:preorder@lulucat.us?subject=Pre-order%20-%20lulucat%20Strider%201&body=---%20Pre-order%20Application%20---%0D%0A%0D%0A%28Limit%3A%20max%202%20pairs%20per%20person.%20Submission%20constitutes%20acceptance%20of%20pre-order%20terms.%29%0D%0A%0D%0AName%3A%0D%0AQuantity%3A%0D%0ASize%20%28EU%29%3A%0D%0ANotes%3A">
+<svg style="width:15px;height:15px;vertical-align:middle;margin-right:6px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 4l10 8 10-8"/></svg>
+<span>Apply for Pre-order</span></a>
 </div>
 </div>
 </div>
@@ -592,6 +704,7 @@ function toggleLang() {
 <li><span class="lang-zh">CORE 系统</span><span class="lang-en">CORE System</span></li>
 <li><span class="lang-zh">关节韧力疲劳</span><span class="lang-en">Joint Resilience Fatigue</span></li>
 <li><span class="lang-zh">JFI 指示层</span><span class="lang-en">JFI Indicator</span></li>
+<li><a href="mailto:custom_service@lulucat.us" style="color: var(--accent); text-decoration: none;">custom_service@lulucat.us</a></li>
 </ul>
 </div>
 </div>
